@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Default Tags -->
+    <record id="lists_tag_work" model="lists.tag">
+        <field name="name">Work</field>
+    </record>
+    <record id="lists_tag_event" model="lists.tag">
+        <field name="name">Event</field>
+    </record>
+    <record id="lists_tag_life" model="lists.tag">
+        <field name="name">Life</field>
+    </record>
+    <record id="lists_tag_achievement" model="lists.tag">
+        <field name="name">Achievement</field>
+    </record>
+</odoo>

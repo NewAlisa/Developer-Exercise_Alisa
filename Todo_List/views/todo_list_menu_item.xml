@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menus -->
+    <menuitem id="menu_todo_root" name="Todo List" sequence="10"/>
+    <menuitem id="menu_todo_all" name="All" parent="menu_todo_root" action="action_todo_list"/>
+    <menuitem id="menu_todo_uncom" name="Uncomplete" parent="menu_todo_root" action="action_todo_list_uncom"/>
+    <menuitem id="menu_todo_com" name="Complete" parent="menu_todo_root" action="action_todo_list_com"/>
+</odoo>
