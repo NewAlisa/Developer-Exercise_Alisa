@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class TodoLists(models.Model):
     _name = 'todo.lists'
@@ -25,6 +26,11 @@ class TodoLists(models.Model):
                 else:
                     self.check_completed = False
  
+    @api.constrains('start_date', 'end_date')
+    def _check_dates(self):
+        for record in self:
+            if record.start_date and record.end_date and record.start_date > record.end_date:
+                raise ValidationError('The start date must be before the end date.')
     
     title = fields.Char(string='Title', required=True)
     start_date = fields.Datetime(string='Start Date', required=True)
