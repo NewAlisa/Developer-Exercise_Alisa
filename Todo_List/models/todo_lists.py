@@ -14,13 +14,16 @@ class TodoLists(models.Model):
         for record in self:
             record.status = 'complete'
     
-    @api.onchange('progarm_id.is_completed')
+    @api.onchange('progarm_ids.is_completed')
     def all_progams_completed(self):
-        for record in self:
-            if all(program.is_completed for program in record.progarm_ids):
-                record.check_completed = True
-            else:
-                record.check_completed = False
+        if not self.progarm_ids:
+            self.check_completed = False
+        else:
+            for record in self:
+                if all(program.is_completed for program in record.progarm_ids):
+                    self.check_completed = True
+                else:
+                    self.check_completed = False
  
     
     title = fields.Char(string='Title', required=True)
